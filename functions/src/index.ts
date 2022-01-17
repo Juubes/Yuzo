@@ -1,9 +1,7 @@
-import * as functions from "firebase-functions";
+// https://firebase.google.com/docs/functions/typescript
 
-// // Start writing Firebase Functions
-// // https://firebase.google.com/docs/functions/typescript
-//
-// export const helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+import createUser from "./create-user";
+
+const allFunctions = { createUser };
+
+export default allFunctions;
