@@ -1,7 +1,6 @@
 import Head from "next/head";
-import styles from "@styles/Index.module.scss";
 
-export default function Home() {
+function Index() {
     return (
         <>
             <Head>
@@ -12,11 +11,14 @@ export default function Home() {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+
             <header>header</header>
 
-            <main className={styles.main}>main</main>
+            <main>main</main>
 
-            <footer className={styles.footer}>footer</footer>
+            <footer>footer</footer>
         </>
     );
 }
+
+export default Index;
