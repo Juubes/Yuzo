@@ -3,9 +3,9 @@
         "target": "es6",
         "baseUrl": ".",
         "paths": {
-          "@components/*": ["./src/components/*"],
-          "@utilities/*": ["./src/util/*"],
-          "@styles/*": ["./src/styles/*"],
+            "@components/*": ["./src/components/*"],
+            "@utilities/*": ["./src/util/*"],
+            "@styles/*": ["./src/styles/*"]
         }
     }
 }

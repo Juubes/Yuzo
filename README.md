@@ -11,5 +11,3 @@ The social media for image recognition. This is a project for testing out cool A
 ![Architecture](./overview.png)
 <br>
 What's UML anyway?
-
-

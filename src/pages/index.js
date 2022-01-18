@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@styles/Index.module.css";
+import styles from "@styles/Index.module.scss";
 
 export default function Home() {
     return (
