@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import backArrowImg from "@images/arrow.png";
+import settingsImg from "@images/settings.webp";
 import Post from "./Post";
 
 const POSTS = [
@@ -32,6 +33,8 @@ const POSTS = [
 ];
 
 function Index() {
+    let showBackButton = false;
+
     return (
         <>
             <Head>
@@ -55,12 +58,14 @@ function Index() {
 
             <header className="bg-orange-300 pl-7 text-8xl flex">
                 <div className="self-center flex absolute">
-                    <Image
-                        width="40px"
-                        height="40px"
-                        src={backArrowImg}
-                        alt="arrow"
-                    />
+                    {!showBackButton || (
+                        <Image
+                            width="40px"
+                            height="40px"
+                            src={backArrowImg}
+                            alt="arrow"
+                        />
+                    )}
                 </div>
                 <div
                     style={{ fontFamily: "Modak" }}
@@ -68,9 +73,19 @@ function Index() {
                 >
                     Yuzo
                 </div>
+                <div className="self-center flex absolute right-10">
+                    {showBackButton || (
+                        <Image
+                            width="60px"
+                            height="60px"
+                            src={settingsImg}
+                            alt="arrow"
+                        />
+                    )}
+                </div>
             </header>
 
-            <div className="mt-16 mx-auto w-1/2 flex justify-center">
+            <div className="mt-6 mx-auto w-1/2 flex justify-center">
                 <main className="min-h-screen max-w-3xl">
                     {POSTS.map((post) => (
                         <Post
