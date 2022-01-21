@@ -1,6 +1,7 @@
 import Head from "next/head";
+import Button from "../components/Button.tsx";
 
-function Index() {
+function App() {
     return (
         <>
             <Head>
@@ -14,11 +15,13 @@ function Index() {
 
             <header>header</header>
 
-            <main>main</main>
+            <main>
+                <Button>Test button</Button>
+            </main>
 
             <footer>footer</footer>
         </>
     );
 }
 
-export default Index;
+export default App;
