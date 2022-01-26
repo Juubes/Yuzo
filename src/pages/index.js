@@ -8,14 +8,25 @@ import { useEffect, useState } from "react";
 import { functions } from "@services/firebase";
 import { httpsCallable } from "firebase/functions";
 
+const POST_TEMPLATES = (
+    <>
+        <Post template />
+        <Post template />
+        <Post template />
+        <Post template />
+    </>
+);
+
 function Index() {
     let showBackButton = false;
 
     let [state, setState] = useState({ posts: [] });
 
-    
-    // let res = httpsCallable(functions, "getFeed")();
-    // setState({ posts: res.data });
+    useEffect(() => {
+        httpsCallable(functions, "getFeed")().then((data) => {
+            setState({ posts: data.data });
+        });
+    }, []);
 
     return (
         <>
@@ -65,14 +76,16 @@ function Index() {
 
             <div className="mt-6 mx-auto w-1/2 flex justify-center">
                 <main className="min-h-screen max-w-3xl">
-                    {state.posts.map((post) => (
-                        <Post
-                            key={post.id}
-                            id={post.id}
-                            imageUrl={post.imageUrl}
-                            imageTitle={post.imageTitle}
-                        />
-                    ))}
+                    {state.posts.length == 0
+                        ? POST_TEMPLATES
+                        : state.posts.map((post) => (
+                              <Post
+                                  key={post.id}
+                                  id={post.id}
+                                  imageUrl={post.imageUrl}
+                                  imageTitle={post.imageTitle}
+                              />
+                          ))}
                 </main>
             </div>
         </>

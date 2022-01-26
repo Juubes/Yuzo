@@ -5,6 +5,16 @@ import commentIcon from "@images/comment.png";
 import shareIcon from "@images/share.png";
 
 function Post(props) {
+    if (props.template)
+        return (
+            <div className="m-20 bg-orange-400 p-7 rounded-lg">
+                <div style={{ width: "600px", height: "600px" }}></div>
+                <div>
+                    <h3 className="text-3xl py-3 font-semibold"></h3>
+                    <Icons id={props.imageId} />
+                </div>
+            </div>
+        );
     return (
         <div className="m-20 bg-orange-400 p-7 rounded-lg">
             <Image width="600px" height="600px" src={props.imageUrl} />
