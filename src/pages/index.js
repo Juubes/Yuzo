@@ -4,33 +4,11 @@ import Image from "next/image";
 import backArrowImg from "@images/arrow.png";
 import settingsImg from "@images/settings.webp";
 import Post from "./Post";
+import { useEffect, useState } from "react";
 
-const POSTS = [
-    {
-        id: "1",
-        imageUrl:
-            "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
-        imageTitle: "Shrek"
-    },
-    {
-        id: "2",
-        imageUrl:
-            "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
-        imageTitle: "Shrek"
-    },
-    {
-        id: "3",
-        imageUrl:
-            "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
-        imageTitle: "Shrek"
-    },
-    {
-        id: "4",
-        imageUrl:
-            "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
-        imageTitle: "Shrek"
-    }
-];
+import * as firebase from "@services/firebase";
+import { httpsCallable } from "firebase/functions";
+import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 
 function Index() {
     let showBackButton = false;
@@ -45,19 +23,15 @@ function Index() {
                 />
                 <link rel="icon" href="/favicon.ico" />
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link
-                    rel="preconnect"
-                    href="https://fonts.gstatic.com"
-                    crossorigin
-                />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Modak&family=Zen+Antique+Soft&display=swap"
                     rel="stylesheet"
                 />
             </Head>
 
-            <header className="bg-orange-300 pl-7 text-8xl flex">
-                <div className="self-center flex absolute">
+            <header className="bg-orange-300 text-8xl flex">
+                <div className="self-center flex absolute pl-7">
                     {!showBackButton || (
                         <Image
                             width="40px"
@@ -87,14 +61,14 @@ function Index() {
 
             <div className="mt-6 mx-auto w-1/2 flex justify-center">
                 <main className="min-h-screen max-w-3xl">
-                    {POSTS.map((post) => (
+                    {/* {state.posts.map((post) => (
                         <Post
                             key={post.id}
                             id={post.id}
                             imageUrl={post.imageUrl}
                             imageTitle={post.imageTitle}
                         />
-                    ))}
+                    )) || []} */}
                 </main>
             </div>
         </>
