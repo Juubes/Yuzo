@@ -4,6 +4,8 @@ The social media for image recognition. This is a project for testing out cool A
 
 <hr>
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/65b3da31-646a-4d10-8cad-1295ce95f389/deploy-status)](https://app.netlify.com/sites/yuzo/deploys)
+
 <br>
 
 # Architecture
