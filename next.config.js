@@ -1,6 +1,8 @@
 module.exports = {
     reactStrictMode: true,
-    origin: "localhost",
+    images: {
+        domains: ["i1.sndcdn.com"]
+    },
     async headers() {
         return [
             {

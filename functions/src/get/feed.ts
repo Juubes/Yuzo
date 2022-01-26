@@ -29,8 +29,12 @@ const POSTS = [
 
 const getFeed = functions
     .runWith({ memory: "128MB", maxInstances: 1, timeoutSeconds: 20 })
+    .region("europe-west1")
     .https.onRequest((req, res) => {
-        res.json(POSTS);
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        res.setHeader("Access-Control-Allow-Headers", "*");
+
+        res.send({ data: POSTS });
     });
 
 export default getFeed;

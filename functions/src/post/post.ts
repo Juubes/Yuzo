@@ -3,6 +3,7 @@ import vision from "@google-cloud/vision";
 
 const createPost = functions
     .runWith({ memory: "2GB", maxInstances: 2, timeoutSeconds: 20 })
+    .region("europe-west1")
     .https.onRequest(async (req, res) => {
         if (req.method != "POST") {
             res.sendStatus(405);

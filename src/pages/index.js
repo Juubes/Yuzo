@@ -3,15 +3,19 @@ import Image from "next/image";
 
 import backArrowImg from "@images/arrow.png";
 import settingsImg from "@images/settings.webp";
-import Post from "./Post";
+import Post from "@components/Post";
 import { useEffect, useState } from "react";
-
-import * as firebase from "@services/firebase";
+import { functions } from "@services/firebase";
 import { httpsCallable } from "firebase/functions";
-import { loadGetInitialProps } from "next/dist/shared/lib/utils";
 
 function Index() {
     let showBackButton = false;
+
+    let [state, setState] = useState({ posts: [] });
+
+    
+    // let res = httpsCallable(functions, "getFeed")();
+    // setState({ posts: res.data });
 
     return (
         <>
@@ -61,14 +65,14 @@ function Index() {
 
             <div className="mt-6 mx-auto w-1/2 flex justify-center">
                 <main className="min-h-screen max-w-3xl">
-                    {/* {state.posts.map((post) => (
+                    {state.posts.map((post) => (
                         <Post
                             key={post.id}
                             id={post.id}
                             imageUrl={post.imageUrl}
                             imageTitle={post.imageTitle}
                         />
-                    )) || []} */}
+                    ))}
                 </main>
             </div>
         </>
