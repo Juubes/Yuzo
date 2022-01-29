@@ -8,6 +8,7 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@firebase/auth": "^0.19.7",
         "autoprefixer": "^10.4.2",
         "firebase": "^9.6.4",
         "javascript-time-ago": "^2.3.11",

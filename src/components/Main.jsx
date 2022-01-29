@@ -3,6 +3,7 @@ import { httpsCallable } from "firebase/functions";
 import React, { useEffect, useState } from "react";
 import MaximizedPost from "./MaximizedPost";
 import Post from "./Post";
+import SettingsArea from "./Settings";
 
 const POST_TEMPLATES = (
     <>
@@ -38,7 +39,7 @@ function Main(props) {
                     setMaximizedPost={setMaximizedPost}
                 />
             ) : (
-                <div>settingsOpen</div>
+                <SettingsArea />
             )}
         </main>
     );

@@ -187,6 +187,18 @@
     selenium-webdriver "4.0.0-rc-1"
     tslib "^2.1.0"
 
+"@firebase/auth@^0.19.7":
+  version "0.19.7"
+  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.19.7.tgz#0c537e3966fc95f9e79783c49242818426956c96"
+  integrity sha512-+9a5ideiY+ey3LeRsg9RdnR+BjxJwN8+nfifNl1Hucuj2MZOXIv/D6D/6xzi4XdZj3cFrFvBjZdg5nCiKZsZ7w==
+  dependencies:
+    "@firebase/component" "0.5.10"
+    "@firebase/logger" "0.3.2"
+    "@firebase/util" "1.4.3"
+    node-fetch "2.6.7"
+    selenium-webdriver "4.0.0-rc-1"
+    tslib "^2.1.0"
+
 "@firebase/component@0.5.10":
   version "0.5.10"
   resolved "https://registry.npmjs.org/@firebase/component/-/component-0.5.10.tgz"
@@ -2081,6 +2093,13 @@ node-fetch@2.6.5:
   version "2.6.5"
   resolved "https://registry.npmjs.org/node-fetch/-/node-fetch-2.6.5.tgz"
   integrity sha512-mmlIVHJEu5rnIxgEgez6b9GgWXbkZj5YZ7fx+2r94a2E+Uirsp6HsPTPlomfdHtpt/B0cdKviwkoaM6pyvUOpQ==
+  dependencies:
+    whatwg-url "^5.0.0"
+
+node-fetch@2.6.7:
+  version "2.6.7"
+  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.7.tgz#24de9fba827e3b4ae44dc8b20256a379160052ad"
+  integrity sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==
   dependencies:
     whatwg-url "^5.0.0"
 

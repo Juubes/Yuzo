@@ -1,13 +1,14 @@
+import { getUser } from "@services/firebase";
 import backArrowImg from "@images/arrow.png";
 import settingsImg from "@images/settings.webp";
 import Image from "next/image";
 import React, { useState } from "react";
 
-function Header(props: { toggleSettings: Function }) {
+function Header(props: { openSettings: Function }) {
     const [showBackButton, setShowBackButton] = useState(false);
     const [showSettingsbutton, setShowSettingsbutton] = useState(true);
 
-    const { toggleSettings } = props;
+    const { openSettings } = props;
 
     return (
         <header className="bg-orange-300 text-8xl flex">
@@ -23,26 +24,45 @@ function Header(props: { toggleSettings: Function }) {
             </div>
             <div
                 style={{ fontFamily: "Modak" }}
+                onClick={() => {}}
                 className="text-center w-full pt-3"
             >
                 Yuzo
             </div>
             <button
                 className="self-center flex absolute right-10 hover:scale-125 transition"
-                onClick={() => toggleSettings()}
+                onClick={() => openSettings()}
             >
+                <SettingsLoginButton showSettingsbutton={showSettingsbutton} />
+            </button>
+        </header>
+    );
+}
+
+function SettingsLoginButton(props) {
+    const { showSettingsbutton } = props;
+    const user = getUser();
+
+    if (!user) return <LoginButton />;
+
+    if (showSettingsbutton)
+        return (
+            <>
                 {showSettingsbutton && (
                     <Image
                         width="60px"
                         height="60px"
                         src={settingsImg}
                         alt="arrow"
-                        onClick={() => toggleSettings()}
                     />
                 )}
-            </button>
-        </header>
-    );
+            </>
+        );
+    else return <></>;
+}
+
+function LoginButton(props) {
+    return <button onClick={() => alert("todo")}>Login</button>;
 }
 
 export default Header;
