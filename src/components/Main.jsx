@@ -1,10 +1,8 @@
 import { functions } from "@services/firebase";
 import { httpsCallable } from "firebase/functions";
-import React from "react";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import MaximizedPost from "./MaximizedPost";
 import Post from "./Post";
-import PostData from "./PostData";
 
 const POST_TEMPLATES = (
     <>
@@ -33,6 +31,24 @@ function Main(props) {
 
     return (
         <main className="min-h-screen max-w-3xl">
+            {!settingsOpen ? (
+                <Feed
+                    posts={posts}
+                    maximizedPost={maximizedPost}
+                    setMaximizedPost={setMaximizedPost}
+                />
+            ) : (
+                <div>settingsOpen</div>
+            )}
+        </main>
+    );
+}
+
+export function Feed(props) {
+    const { posts, maximizedPost, setMaximizedPost } = props;
+
+    return (
+        <>
             {posts.length == 0
                 ? POST_TEMPLATES
                 : posts.map((post) => (
@@ -52,7 +68,7 @@ function Main(props) {
                     setMaximizedPost={setMaximizedPost}
                 />
             )}
-        </main>
+        </>
     );
 }
 

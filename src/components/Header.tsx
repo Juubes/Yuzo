@@ -3,11 +3,11 @@ import settingsImg from "@images/settings.webp";
 import Image from "next/image";
 import React, { useState } from "react";
 
-function Header(props: { openSettings: Function }) {
+function Header(props: { toggleSettings: Function }) {
     const [showBackButton, setShowBackButton] = useState(false);
     const [showSettingsbutton, setShowSettingsbutton] = useState(true);
 
-    const { openSettings } = props;
+    const { toggleSettings } = props;
 
     return (
         <header className="bg-orange-300 text-8xl flex">
@@ -27,17 +27,20 @@ function Header(props: { openSettings: Function }) {
             >
                 Yuzo
             </div>
-            <div className="self-center flex absolute right-10">
+            <button
+                className="self-center flex absolute right-10 hover:scale-125 transition"
+                onClick={() => toggleSettings()}
+            >
                 {showSettingsbutton && (
                     <Image
                         width="60px"
                         height="60px"
                         src={settingsImg}
                         alt="arrow"
-                        onClick={() => openSettings()}
+                        onClick={() => toggleSettings()}
                     />
                 )}
-            </div>
+            </button>
         </header>
     );
 }
