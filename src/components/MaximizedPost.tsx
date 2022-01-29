@@ -6,8 +6,9 @@ function MaximizedPost(props: {
     maximizedPost: PostData;
     setMaximizedPost: Function;
 }) {
-    if (!props.maximizedPost) return <></>;
+    const { postId, imageUrl, title } = props.maximizedPost;
 
+    // Add event listeners for close
     useEffect(() => {
         const listener = (event) => {
             if (event.code == "Escape") {
@@ -18,9 +19,7 @@ function MaximizedPost(props: {
 
         return () => window.removeEventListener("keydown", listener);
     }, []);
-
-    const { postId, imageUrl, title } = props.maximizedPost;
-
+ 
     return (
         <div className="fixed inset-0 bg-gray-500">
             <Post postId={postId} imageUrl={imageUrl} title={title} />

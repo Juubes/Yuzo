@@ -39,6 +39,7 @@ function CommentSection(props: { postId: string }) {
         <div className="pt-4 px-2">
             {TESTING_COMMENTS.map((comment) => (
                 <Comment
+                    key={comment.username + comment.timestamp}
                     user={comment.username}
                     comment={comment.comment}
                     timestamp={comment.timestamp}
@@ -61,7 +62,10 @@ function Comment(props) {
                 {props.replies.map((reply) => {
                     const replyTime = howLongAgo(reply.timestamp);
                     return (
-                        <div className="ml-6 mb-2">
+                        <div
+                            key={reply.username + reply.timestamp}
+                            className="ml-6 mb-2"
+                        >
                             {/*Replies*/}
                             {reply.username}: {reply.comment}{" "}
                             <span className="text-gray-600">{replyTime}</span>

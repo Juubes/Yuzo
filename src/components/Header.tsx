@@ -3,9 +3,11 @@ import settingsImg from "@images/settings.webp";
 import Image from "next/image";
 import React, { useState } from "react";
 
-function Header() {
+function Header(props: { openSettings: Function }) {
     const [showBackButton, setShowBackButton] = useState(false);
     const [showSettingsbutton, setShowSettingsbutton] = useState(true);
+
+    const { openSettings } = props;
 
     return (
         <header className="bg-orange-300 text-8xl flex">
@@ -32,6 +34,7 @@ function Header() {
                         height="60px"
                         src={settingsImg}
                         alt="arrow"
+                        onClick={() => openSettings()}
                     />
                 )}
             </div>

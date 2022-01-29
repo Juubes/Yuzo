@@ -3,8 +3,9 @@ import Header from "@components/Header";
 import { useState } from "react";
 import Main from "@components/Main";
 
-function Index() {
+function Index(props: { settingsOpen: boolean }) {
     const [maximizedPost, setMaximizedPost] = useState(null);
+    const [settingsOpen, toggleSettings] = useState(false);
 
     return (
         <>
@@ -22,9 +23,9 @@ function Index() {
                     rel="stylesheet"
                 />
             </Head>
-            <Header />
+            <Header openSettings={() => toggleSettings(true)} />
             <div className="mt-6 mx-auto w-1/2 flex justify-center">
-                <Main />
+                <Main settingsOpen={settingsOpen} />
             </div>
         </>
     );

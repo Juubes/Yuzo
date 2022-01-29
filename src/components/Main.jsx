@@ -15,9 +15,11 @@ const POST_TEMPLATES = (
     </>
 );
 
-function Main() {
+function Main(props) {
     const [posts, setPosts] = useState([]);
     const [maximizedPost, setMaximizedPost] = useState(null);
+
+    const { settingsOpen } = props;
 
     useEffect(() => {
         httpsCallable(functions, "getFeed")()
@@ -44,10 +46,12 @@ function Main() {
                           }}
                       />
                   ))}
-            <MaximizedPost
-                maximizedPost={maximizedPost}
-                setMaximizedPost={setMaximizedPost}
-            />
+            {maximizedPost && (
+                <MaximizedPost
+                    maximizedPost={maximizedPost}
+                    setMaximizedPost={setMaximizedPost}
+                />
+            )}
         </main>
     );
 }
