@@ -1,0 +1,55 @@
+import { functions } from "@services/firebase";
+import { httpsCallable } from "firebase/functions";
+import React from "react";
+import { useEffect, useState } from "react";
+import MaximizedPost from "./MaximizedPost";
+import Post from "./Post";
+import PostData from "./PostData";
+
+const POST_TEMPLATES = (
+    <>
+        <Post template />
+        <Post template />
+        <Post template />
+        <Post template />
+    </>
+);
+
+function Main() {
+    const [posts, setPosts] = useState([]);
+    const [maximizedPost, setMaximizedPost] = useState(null);
+
+    useEffect(() => {
+        httpsCallable(functions, "getFeed")()
+            .then((data) => {
+                setPosts(data.data);
+            })
+            .catch(
+                (err) => alert(err) // TODO: better error handling
+            );
+    }, []);
+
+    return (
+        <main className="min-h-screen max-w-3xl">
+            {posts.length == 0
+                ? POST_TEMPLATES
+                : posts.map((post) => (
+                      <Post
+                          key={post.id}
+                          id={post.id}
+                          imageUrl={post.imageUrl}
+                          imageTitle={post.imageTitle}
+                          onClick={() => {
+                              setMaximizedPost(post);
+                          }}
+                      />
+                  ))}
+            <MaximizedPost
+                maximizedPost={maximizedPost}
+                setMaximizedPost={setMaximizedPost}
+            />
+        </main>
+    );
+}
+
+export default Main;
