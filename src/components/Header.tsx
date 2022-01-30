@@ -1,8 +1,10 @@
-import { getUser } from "@services/firebase";
 import backArrowImg from "@images/arrow.png";
 import settingsImg from "@images/settings.webp";
+import { auth, provider } from "@services/firebase";
+import { signInWithPopup } from "firebase/auth";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useReducer, useState } from "react";
+import { useAuth } from "src/contexts/AuthProvider";
 
 function Header(props: { openSettings: Function }) {
     const [showBackButton, setShowBackButton] = useState(false);
@@ -29,40 +31,38 @@ function Header(props: { openSettings: Function }) {
             >
                 Yuzo
             </div>
-            <button
-                className="self-center flex absolute right-10 hover:scale-125 transition"
-                onClick={() => openSettings()}
-            >
-                <SettingsLoginButton showSettingsbutton={showSettingsbutton} />
+            <button className="self-center flex absolute right-10 hover:scale-125 transition">
+                <SettingsLoginButton
+                    showSettingsbutton={showSettingsbutton}
+                    openSettings={openSettings}
+                />
             </button>
         </header>
     );
 }
 
 function SettingsLoginButton(props) {
-    const { showSettingsbutton } = props;
-    const user = getUser();
+    const value = useAuth();
 
-    if (!user) return <LoginButton />;
+    if (!value.user) return <LoginButton />;
 
-    if (showSettingsbutton)
-        return (
-            <>
-                {showSettingsbutton && (
-                    <Image
-                        width="60px"
-                        height="60px"
-                        src={settingsImg}
-                        alt="arrow"
-                    />
-                )}
-            </>
-        );
-    else return <></>;
+    return (
+        <>
+            {
+                <Image
+                    width="60px"
+                    height="60px"
+                    src={settingsImg}
+                    onClick={() => props.openSettings()}
+                />
+            }
+        </>
+    );
 }
 
 function LoginButton(props) {
-    return <button onClick={() => alert("todo")}>Login</button>;
+    const auth = useAuth();
+    return <div onClick={() => auth.signIn()}>Login</div>;
 }
 
 export default Header;

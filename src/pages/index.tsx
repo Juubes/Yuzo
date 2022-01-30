@@ -2,12 +2,13 @@ import Head from "next/head";
 import Header from "@components/Header";
 import { useState } from "react";
 import Main from "@components/Main";
+import AuthProvider from "src/contexts/AuthProvider";
 
 function Index() {
     const [settingsOpen, setSettingsOpen] = useState(false);
 
     return (
-        <>
+        <AuthProvider>
             <Head>
                 <title>Yuzo</title>
                 <meta
@@ -28,9 +29,9 @@ function Index() {
                 }}
             />
             <div className="mt-6 mx-auto w-1/2 flex justify-center">
-                <Main settingsOpen={settingsOpen} />
+                <Main settingsOpen={settingsOpen} setSettingsOpen={setSettingsOpen} />
             </div>
-        </>
+        </AuthProvider>
     );
 }
 

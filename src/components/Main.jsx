@@ -39,7 +39,9 @@ function Main(props) {
                     setMaximizedPost={setMaximizedPost}
                 />
             ) : (
-                <SettingsArea />
+                <SettingsArea
+                    closeSettings={() => props.setSettingsOpen(false)}
+                />
             )}
         </main>
     );
