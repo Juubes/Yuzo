@@ -28,6 +28,7 @@
         "paths": {
             "@components/*": ["./src/components/*"],
             "@services/*": ["./src/services/*"],
+            "@contexts/*": ["./src/contexts"],
             "@images/*": ["./src/images/*"],
             "@styles/*": ["./src/styles/*"],
             "@util/*": ["./src/util/*"]
@@ -103,6 +104,11 @@
         "isolatedModules": true,
         "jsx": "preserve"
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/Main.jsx"],
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "src/components/Main.jsx"
+    ],
     "exclude": ["node_modules", "functions"]
 }

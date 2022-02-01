@@ -5,12 +5,10 @@ import { signInWithPopup } from "firebase/auth";
 import Image from "next/image";
 import React, { useReducer, useState } from "react";
 import { useAuth } from "src/contexts/AuthProvider";
+import { useGlobalState } from "src/contexts/StateProvider";
 
-function Header(props: { openSettings: Function }) {
-    const [showBackButton, setShowBackButton] = useState(false);
-    const [showSettingsbutton, setShowSettingsbutton] = useState(true);
-
-    const { openSettings } = props;
+function Header(props) {
+    const [showBackButton] = useState(false);
 
     return (
         <header className="bg-orange-300 text-8xl flex">
@@ -32,16 +30,14 @@ function Header(props: { openSettings: Function }) {
                 Yuzo
             </div>
             <button className="self-center flex absolute right-10 hover:scale-125 transition">
-                <SettingsLoginButton
-                    showSettingsbutton={showSettingsbutton}
-                    openSettings={openSettings}
-                />
+                <SettingsLoginButton />
             </button>
         </header>
     );
 }
 
 function SettingsLoginButton(props) {
+    const { setSettingsOpen, settingsOpen } = useGlobalState();
     const value = useAuth();
 
     if (!value.user) return <LoginButton />;
@@ -53,7 +49,7 @@ function SettingsLoginButton(props) {
                     width="60px"
                     height="60px"
                     src={settingsImg}
-                    onClick={() => props.openSettings()}
+                    onClick={() => setSettingsOpen(!settingsOpen)}
                 />
             }
         </>

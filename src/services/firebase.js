@@ -1,3 +1,4 @@
+import process from "process";
 import { initializeApp } from "firebase/app";
 import {
     connectAuthEmulator,
@@ -14,6 +15,8 @@ const provider = new GoogleAuthProvider();
 
 const auth = getAuth();
 auth.useDeviceLanguage(auth);
-connectAuthEmulator(auth, "http://localhost:9099");
+
+if (process.env.NODE_ENV == "development")
+    connectAuthEmulator(auth, "http://localhost:9099");
 
 export { functions, auth, provider };
