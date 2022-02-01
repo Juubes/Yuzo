@@ -1,13 +1,15 @@
+import { useGlobalState } from "src/contexts/StateProvider";
 import MaximizedPost from "./MaximizedPost";
 import Post from "./Post";
 
 function Feed(props) {
-    const { posts, maximizedPost, setMaximizedPost } = props;
+    const { posts } = props;
+    const { maximizedPost, setMaximizedPost } = useGlobalState();
 
     return (
         <>
             {posts.length == 0 ? (
-                <div id="feed-placeholder"></div>
+                <div id="feed-placeholder">Loading feed</div>
             ) : (
                 posts.map((post) => (
                     <Post
@@ -21,12 +23,7 @@ function Feed(props) {
                     />
                 ))
             )}
-            {maximizedPost && (
-                <MaximizedPost
-                    maximizedPost={maximizedPost}
-                    setMaximizedPost={setMaximizedPost}
-                />
-            )}
+            {maximizedPost && <MaximizedPost />}
         </>
     );
 }

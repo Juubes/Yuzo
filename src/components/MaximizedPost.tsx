@@ -1,27 +1,33 @@
 import React, { useEffect } from "react";
+import { useGlobalState } from "src/contexts/StateProvider";
 import Post from "./Post";
 import PostData from "./PostData";
 
-function MaximizedPost(props: {
-    maximizedPost: PostData;
-    setMaximizedPost: Function;
-}) {
-    const { postId, imageUrl, title } = props.maximizedPost;
+function MaximizedPost() {
+    const { maximizedPost, setMaximizedPost } = useGlobalState();
+    const { postId, imageUrl, title } = maximizedPost;
+
+    const closePost = () => {};
 
     // Add event listeners for close
     useEffect(() => {
         const listener = (event) => {
             if (event.code == "Escape") {
-                props.setMaximizedPost(null);
+                setMaximizedPost(null);
             }
         };
         window.addEventListener("keydown", listener);
 
         return () => window.removeEventListener("keydown", listener);
     }, []);
- 
+
     return (
-        <div className="fixed inset-0 bg-gray-500">
+        <div
+            className="fixed inset-0 bg-gray-500"
+            onClick={() => {
+                setMaximizedPost(null);
+            }}
+        >
             <Post postId={postId} imageUrl={imageUrl} title={title} />
         </div>
     );

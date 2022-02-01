@@ -7,7 +7,6 @@ import { useGlobalState } from "src/contexts/StateProvider";
 
 function Main(props) {
     const [posts, setPosts] = useState([]);
-    const [maximizedPost, setMaximizedPost] = useState(null);
 
     const { settingsOpen } = useGlobalState();
 
@@ -27,11 +26,7 @@ function Main(props) {
     return (
         <main className="min-h-screen max-w-3xl">
             {!settingsOpen ? (
-                <Feed
-                    posts={posts}
-                    maximizedPost={maximizedPost}
-                    setMaximizedPost={setMaximizedPost}
-                />
+                <Feed posts={posts} />
             ) : (
                 <SettingsArea
                     closeSettings={() => props.setSettingsOpen(false)}

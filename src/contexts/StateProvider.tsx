@@ -1,17 +1,17 @@
 import * as React from "react";
+import { useContext, useState } from "react";
 
 const GlobalStateContext = React.createContext(null);
 
 function GlobalStateProvider({ children }) {
-    const [settingsOpen, setSettings] = React.useState(false);
-
-    const setSettingsOpen = (val) => {
-        setSettings(val);
-    };
+    const [settingsOpen, setSettingsOpen] = useState(false);
+    const [maximizedPost, setMaximizedPost] = useState(null);
 
     const value = {
         settingsOpen,
-        setSettingsOpen
+        maximizedPost,
+        setSettingsOpen,
+        setMaximizedPost
     };
 
     return (
@@ -24,5 +24,5 @@ function GlobalStateProvider({ children }) {
 export default GlobalStateProvider;
 
 export function useGlobalState() {
-    return React.useContext(GlobalStateContext);
+    return useContext(GlobalStateContext);
 }

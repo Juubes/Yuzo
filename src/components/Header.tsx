@@ -29,6 +29,7 @@ function Header(props) {
             >
                 Yuzo
             </div>
+
             <button className="self-center flex absolute right-10 hover:scale-125 transition">
                 <SettingsLoginButton />
             </button>
