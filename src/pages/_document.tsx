@@ -1,4 +1,4 @@
-import { Html, Head } from "next/document";
+import { Html, Head, Main, NextScript } from "next/document";
 import Index from ".";
 
 export default function Document() {
@@ -18,7 +18,8 @@ export default function Document() {
                 />
             </Head>
             <body>
-                <Index />
+                <Main />
+                <NextScript />
             </body>
         </Html>
     );
