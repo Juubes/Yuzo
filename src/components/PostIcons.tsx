@@ -7,9 +7,9 @@ import shareIcon from "@images/share.png";
 function PostIcons(props: { postId: string }) {
     return (
         <div className="flex gap-3 py-5">
-            <Image width="50px" height="50px" src={likeIcon} />
-            <Image width="50px" height="50px" src={commentIcon} />
-            <Image width="50px" height="50px" src={shareIcon} />
+            <Image width="50px" height="50px" src={likeIcon} alt="like" />
+            <Image width="50px" height="50px" src={commentIcon} alt="comment" />
+            <Image width="50px" height="50px" src={shareIcon} alt="share" />
         </div>
     );
 }

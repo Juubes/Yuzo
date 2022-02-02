@@ -16,7 +16,7 @@ function Post(props: PostData) {
                 {props.template ? (
                     <div style={{ width: "600px", height: "600px" }} />
                 ) : (
-                    <Image width="600px" height="600px" src={imageUrl} />
+                    <Image width="600px" height="600px" src={imageUrl} alt="post" />
                 )}
                 <h3 className="text-3xl py-3 font-semibold w-min">{title}</h3>
                 <PostIcons postId={postId} />

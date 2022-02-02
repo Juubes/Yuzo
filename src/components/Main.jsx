@@ -8,7 +8,7 @@ import { useGlobalState } from "src/contexts/StateProvider";
 function Main(props) {
     const [posts, setPosts] = useState([]);
 
-    const { settingsOpen } = useGlobalState();
+    const { settingsOpen, setSettingsOpen } = useGlobalState();
 
     // Load posts
     useEffect(() => {
@@ -25,13 +25,7 @@ function Main(props) {
 
     return (
         <main className="min-h-screen max-w-3xl">
-            {!settingsOpen ? (
-                <Feed posts={posts} />
-            ) : (
-                <SettingsArea
-                    closeSettings={() => props.setSettingsOpen(false)}
-                />
-            )}
+            {!settingsOpen ? <Feed posts={posts} /> : <SettingsArea />}
         </main>
     );
 }

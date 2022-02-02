@@ -1,13 +1,10 @@
 import React, { useEffect } from "react";
 import { useGlobalState } from "src/contexts/StateProvider";
 import Post from "./Post";
-import PostData from "./PostData";
 
 function MaximizedPost() {
     const { maximizedPost, setMaximizedPost } = useGlobalState();
     const { postId, imageUrl, title } = maximizedPost;
-
-    const closePost = () => {};
 
     // Add event listeners for close
     useEffect(() => {
@@ -19,7 +16,7 @@ function MaximizedPost() {
         window.addEventListener("keydown", listener);
 
         return () => window.removeEventListener("keydown", listener);
-    }, []);
+    }, [setMaximizedPost]);
 
     return (
         <div

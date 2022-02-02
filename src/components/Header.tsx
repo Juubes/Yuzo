@@ -8,6 +8,7 @@ import { useAuth } from "src/contexts/AuthProvider";
 import { useGlobalState } from "src/contexts/StateProvider";
 
 function Header(props) {
+    ("Header")
     const [showBackButton] = useState(false);
 
     return (
@@ -18,7 +19,7 @@ function Header(props) {
                         width="40px"
                         height="40px"
                         src={backArrowImg}
-                        alt="arrow"
+                        alt="back button"
                     />
                 )}
             </div>
@@ -51,13 +52,14 @@ function SettingsLoginButton(props) {
                     height="60px"
                     src={settingsImg}
                     onClick={() => setSettingsOpen(!settingsOpen)}
+                    alt="settings"
                 />
             }
         </>
     );
 }
 
-function LoginButton(props) {
+function LoginButton() {
     const auth = useAuth();
     return <div onClick={() => auth.signIn()}>Login</div>;
 }

@@ -1,6 +1,8 @@
 import { useAuth } from "src/contexts/AuthProvider";
+import { useGlobalState } from "src/contexts/StateProvider";
 
-function SettingsArea(props: { closeSettings }) {
+function SettingsArea() {
+    const { setSettingsOpen } = useGlobalState();
     const auth = useAuth();
 
     return (
@@ -12,7 +14,7 @@ function SettingsArea(props: { closeSettings }) {
                 className="font-bold text-blue-500"
                 onClick={() => {
                     auth.logout();
-                    props.closeSettings();
+                    setSettingsOpen(false);
                 }}
             >
                 Logout
