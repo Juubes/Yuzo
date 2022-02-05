@@ -2,7 +2,7 @@ import Head from "next/head";
 import Header from "@components/Header";
 import Main from "@components/Main";
 import AuthProvider from "src/contexts/AuthProvider";
-import GlobalStateProvider from "src/contexts/StateProvider";
+import GlobalStateProvider from "src/contexts/GlobalStateProvider";
 
 function Index() {
     return (
@@ -13,9 +13,7 @@ function Index() {
             <GlobalStateProvider>
                 <AuthProvider>
                     <Header />
-                    <div className="mt-6 mx-auto w-1/2 flex justify-center">
-                        <Main />
-                    </div>
+                    <Main />
                 </AuthProvider>
             </GlobalStateProvider>
         </>

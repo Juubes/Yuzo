@@ -3,7 +3,7 @@ import { httpsCallable } from "firebase/functions";
 import React, { useEffect, useState } from "react";
 import SettingsArea from "./Settings";
 import Feed from "./Feed";
-import { useGlobalState } from "src/contexts/StateProvider";
+import { useGlobalState } from "src/contexts/GlobalStateProvider";
 
 function Main(props) {
     const [posts, setPosts] = useState([]);
@@ -24,7 +24,7 @@ function Main(props) {
     }, []);
 
     return (
-        <main className="min-h-screen max-w-3xl">
+        <main className="m-5 mx-auto max-w-lg min-w-[200px]">
             {!settingsOpen ? <Feed posts={posts} /> : <SettingsArea />}
         </main>
     );

@@ -7,8 +7,6 @@
 
 :root {
     /* Colors */
-    --color-bg: #ebece9;
-    --color-primary: #fd6a35;
     --color-secondary: #9a7bcc;
 
     /* Highlights */
@@ -16,8 +14,20 @@
     --color-hsecondary: #00f0b5;
 }
 
+@layer base {
+    /* Colors */
+    .color-primary {
+        color: "#fd6a35";
+        background-color: "#ebece9";
+    }
+
+    .color-secondary {
+        color: "#ebece9";
+        background-color: "#fd6a35";
+    }
+}
+
 body {
-    /* background-color: var(--color-bg); */
     padding: 0;
     margin: 0;
 }

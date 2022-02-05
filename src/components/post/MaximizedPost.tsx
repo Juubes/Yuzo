@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useGlobalState } from "src/contexts/StateProvider";
+import { useGlobalState } from "src/contexts/GlobalStateProvider";
 import Post from "./Post";
 
 function MaximizedPost() {

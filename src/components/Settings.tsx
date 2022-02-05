@@ -1,5 +1,5 @@
 import { useAuth } from "src/contexts/AuthProvider";
-import { useGlobalState } from "src/contexts/StateProvider";
+import { useGlobalState } from "src/contexts/GlobalStateProvider";
 
 function SettingsArea() {
     const { setSettingsOpen } = useGlobalState();

@@ -5,7 +5,7 @@ import { signInWithPopup } from "firebase/auth";
 import Image from "next/image";
 import React, { useReducer, useState } from "react";
 import { useAuth } from "src/contexts/AuthProvider";
-import { useGlobalState } from "src/contexts/StateProvider";
+import { useGlobalState } from "src/contexts/GlobalStateProvider";
 
 function Header(props) {
     ("Header")
