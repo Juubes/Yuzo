@@ -1,6 +1,5 @@
 import { howLongAgo } from "@util/timeutil";
 import * as React from "react";
-import CommentData from "./post/CommentData";
 
 function CommentSection({ className, comments }) {
     if (!comments) return <></>;

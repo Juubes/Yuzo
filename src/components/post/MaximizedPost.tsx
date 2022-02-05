@@ -4,7 +4,7 @@ import Post from "./Post";
 
 function MaximizedPost() {
     const { maximizedPost, setMaximizedPost } = useGlobalState();
-    const { imageWidth, imageHeight, postId, imageUrl, title, comments } =
+    const { imageWidth, imageHeight, postId, imageUrl, imageTitle, comments } =
         maximizedPost;
 
     // Add event listeners for close
@@ -30,7 +30,7 @@ function MaximizedPost() {
                 <Post
                     postId={postId}
                     imageUrl={imageUrl}
-                    title={title}
+                    imageTitle={imageTitle}
                     comments={comments}
                     imageWidth={imageWidth}
                     imageHeight={imageHeight}

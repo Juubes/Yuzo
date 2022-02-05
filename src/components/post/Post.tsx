@@ -40,7 +40,7 @@ export default Post;
 class PostData {
     postId: string;
     imageUrl: string;
-    title: string;
+    imageTitle: string;
     imageWidth: number;
     imageHeight: number;
     template?: boolean;
