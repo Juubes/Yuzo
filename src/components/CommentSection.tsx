@@ -1,45 +1,13 @@
 import { howLongAgo } from "@util/timeutil";
 import * as React from "react";
+import CommentData from "./post/CommentData";
 
-const TESTING_COMMENTS = [
-    {
-        username: "Jussi",
-        comment: "Nice 5/5",
-        timestamp: 1159352399574,
-        replies: []
-    },
-    {
-        username: "Jaakob",
-        comment: "Kaunis",
-        timestamp: 1259352399574,
-        replies: []
-    },
-    {
-        username: "Onni",
-        comment: "Mä pelaan lolia",
-        timestamp: 1643499118300,
-        replies: [
-            {
-                username: "Juho",
-                comment: "Et sä osaa",
-                timestamp: 1643489118300
-            }
-        ]
-    },
-    {
-        username: "Jorma",
-        comment: "Iha ok mut onks OG",
-        timestamp: 1559352399574,
-        replies: []
-    }
-].sort((d, d2) => d2.timestamp - d.timestamp);
-
-function CommentSection(props: { postId: string }) {
+function CommentSection(props: { comments: CommentData[] }) {
     return (
-        <div className="pt-4 px-2">
-            {TESTING_COMMENTS.map((comment) => (
+        <div className="text-sm pt-4 px-2">
+            {props.comments?.map((comment) => (
                 <Comment
-                    key={comment.username + comment.timestamp}
+                    key={(comment.username, comment.timestamp)}
                     user={comment.username}
                     comment={comment.comment}
                     timestamp={comment.timestamp}

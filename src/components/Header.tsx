@@ -1,14 +1,11 @@
 import backArrowImg from "@images/arrow.png";
 import settingsImg from "@images/settings.webp";
-import { auth, provider } from "@services/firebase";
-import { signInWithPopup } from "firebase/auth";
 import Image from "next/image";
-import React, { useReducer, useState } from "react";
+import React, { useState } from "react";
 import { useAuth } from "src/contexts/AuthProvider";
 import { useGlobalState } from "src/contexts/GlobalStateProvider";
 
 function Header(props) {
-    ("Header")
     const [showBackButton] = useState(false);
 
     return (

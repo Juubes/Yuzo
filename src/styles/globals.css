@@ -17,13 +17,13 @@
 @layer base {
     /* Colors */
     .color-primary {
-        color: "#fd6a35";
-        background-color: "#ebece9";
+        color: #fd6a35;
+        background-color: #ebece9;
     }
 
     .color-secondary {
-        color: "#ebece9";
-        background-color: "#fd6a35";
+        color: #000;
+        background-color: #fd6a35;
     }
 }
 
