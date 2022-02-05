@@ -2,10 +2,11 @@ import { howLongAgo } from "@util/timeutil";
 import * as React from "react";
 import CommentData from "./post/CommentData";
 
-function CommentSection(props: { comments: CommentData[] }) {
+function CommentSection({ className, comments }) {
+    if (!comments) return <></>;
     return (
-        <div className="text-sm pt-4 px-2">
-            {props.comments?.map((comment) => (
+        <div className={`text-sm pt-4 px-2 ${className}`}>
+            {comments?.map((comment) => (
                 <Comment
                     key={(comment.username, comment.timestamp)}
                     user={comment.username}

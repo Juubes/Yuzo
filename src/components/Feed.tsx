@@ -5,7 +5,7 @@ import { useGlobalState } from "src/contexts/GlobalStateProvider";
 import MaximizedPost from "./post/MaximizedPost";
 import Post from "./post/Post";
 
-function Feed() {
+function Feed({ visible }) {
     const { maximizedPost, setMaximizedPost } = useGlobalState();
 
     const [posts, setPosts] = useState(null);
@@ -24,10 +24,12 @@ function Feed() {
         })();
     }, []);
 
+    if (!visible) return <></>;
+
     if (error)
         return (
             <div className="text-center text-red-700">
-                Couldn't load the feed. Try again later.
+                {"Couldn't load the feed. Try again later."}
             </div>
         );
 
@@ -37,11 +39,8 @@ function Feed() {
         <>
             {posts.map((post) => (
                 <Post
-                    key={post.id}
-                    postId={post.id}
-                    imageUrl={post.imageUrl}
-                    title={post.imageTitle}
-                    comments={post.comments}
+                    key={post.postId}
+                    {...post}
                     onClick={() => {
                         setMaximizedPost(post);
                     }}

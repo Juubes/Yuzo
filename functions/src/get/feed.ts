@@ -7,6 +7,8 @@ const POSTS = [
         imageUrl:
             "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
         imageTitle: "Shrek",
+        imageWidth: 500,
+        imageHeight: 500,
         comments: [
             {
                 username: "Jussi",
@@ -44,18 +46,24 @@ const POSTS = [
         id: "2",
         imageUrl:
             "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
+        imageWidth: 500,
+        imageHeight: 500,
         imageTitle: "Shrek"
     },
     {
         id: "3",
         imageUrl:
             "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
+        imageWidth: 500,
+        imageHeight: 500,
         imageTitle: "Shrek"
     },
     {
         id: "4",
         imageUrl:
             "https://i1.sndcdn.com/artworks-hc8qCVYn3QOX8ztv-A8QzHA-t500x500.jpg",
+        imageWidth: 500,
+        imageHeight: 500,
         imageTitle: "Shrek"
     }
 ];

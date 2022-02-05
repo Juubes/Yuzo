@@ -4,12 +4,13 @@ import Image from "next/image";
 import React, { useState } from "react";
 import { useAuth } from "src/contexts/AuthProvider";
 import { useGlobalState } from "src/contexts/GlobalStateProvider";
+import Button from "./Button";
 
 function Header(props) {
     const [showBackButton] = useState(false);
 
     return (
-        <header className="bg-orange-300 text-8xl flex">
+        <header className="color-primary text-8xl flex">
             <div className="self-center flex absolute pl-7">
                 {showBackButton && (
                     <Image
@@ -28,9 +29,9 @@ function Header(props) {
                 Yuzo
             </div>
 
-            <button className="self-center flex absolute right-10 hover:scale-125 transition">
+            <div className="self-center flex absolute right-10 hover:scale-125 transition">
                 <SettingsLoginButton />
-            </button>
+            </div>
         </header>
     );
 }
@@ -58,7 +59,11 @@ function SettingsLoginButton(props) {
 
 function LoginButton() {
     const auth = useAuth();
-    return <div onClick={() => auth.signIn()}>Login</div>;
+    return (
+        <Button onClick={() => auth.signIn()} className="text-3xl font-bold">
+            Login
+        </Button>
+    );
 }
 
 export default Header;

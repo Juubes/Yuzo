@@ -4,7 +4,8 @@ import Post from "./Post";
 
 function MaximizedPost() {
     const { maximizedPost, setMaximizedPost } = useGlobalState();
-    const { postId, imageUrl, title } = maximizedPost;
+    const { imageWidth, imageHeight, postId, imageUrl, title, comments } =
+        maximizedPost;
 
     // Add event listeners for close
     useEffect(() => {
@@ -25,7 +26,16 @@ function MaximizedPost() {
                 setMaximizedPost(null);
             }}
         >
-            <Post postId={postId} imageUrl={imageUrl} title={title} />
+            <div className="m-5">
+                <Post
+                    postId={postId}
+                    imageUrl={imageUrl}
+                    title={title}
+                    comments={comments}
+                    imageWidth={imageWidth}
+                    imageHeight={imageHeight}
+                />
+            </div>
         </div>
     );
 }

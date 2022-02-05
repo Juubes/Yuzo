@@ -11,7 +11,7 @@ function GlobalStateProvider({ children }) {
         settingsOpen,
         maximizedPost,
         setSettingsOpen,
-        setMaximizedPost
+        setMaximizedPost,
     };
 
     return (

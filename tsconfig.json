@@ -28,7 +28,7 @@
         "paths": {
             "@components/*": ["./src/components/*"],
             "@services/*": ["./src/services/*"],
-            "@contexts/*": ["./src/contexts"],
+            "@contexts/*": ["./src/contexts/*"],
             "@images/*": ["./src/images/*"],
             "@styles/*": ["./src/styles/*"],
             "@util/*": ["./src/util/*"]

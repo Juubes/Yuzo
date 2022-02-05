@@ -1,18 +1,16 @@
-import { functions } from "@services/firebase";
-import { httpsCallable } from "firebase/functions";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import SettingsArea from "./Settings";
 import Feed from "./Feed";
-import { useGlobalState } from "src/contexts/GlobalStateProvider";
+import { useGlobalState } from "@contexts/GlobalStateProvider";
 
-function Main(props) {
-
+function Main() {
     const { settingsOpen } = useGlobalState();
-
 
     return (
         <main className="m-5 mx-auto max-w-lg min-w-[200px]">
-            {!settingsOpen ? <Feed /> : <SettingsArea />}
+            <Feed visible={!settingsOpen} />
+
+            {settingsOpen && <SettingsArea />}
         </main>
     );
 }
