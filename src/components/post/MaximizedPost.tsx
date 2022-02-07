@@ -21,12 +21,12 @@ function MaximizedPost() {
 
     return (
         <div
-            className="fixed inset-0 bg-gray-500"
+            className="absolute inset-0 bg-gray-500"
             onClick={() => {
                 setMaximizedPost(null);
             }}
         >
-            <div className="m-5">
+            <div className="m-5 mx-auto max-w-1/2">
                 <Post
                     postId={postId}
                     imageUrl={imageUrl}

@@ -10,13 +10,13 @@ function Button(props: {
     const { primary, secondary } = props;
 
     let color;
-    if (primary) color = "color-primary";
-    else color = "color-secondary";
+    if (secondary) color = "color-secondary";
+    else color = "color-primary";
 
     return (
         <button
             {...props}
-            className={`text-3xl rounded-lg ${color} px-5 py-2 shadow-lg`}
+            className={`text-3xl rounded-lg ${color} px-5 py-2 shadow-lg font-medium`}
         >
             {props.children}
         </button>

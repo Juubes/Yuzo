@@ -36,19 +36,16 @@ function Feed({ visible }) {
     if (!posts) return <div className="text-center">Loading feed...</div>;
 
     return (
-        <>
+        <div className="m-5 mx-auto max-w-3xl min-w-[200px]">
             {posts.map((post) => (
                 <Post
                     key={post.postId}
                     {...post}
-                    onClick={() => {
-                        setMaximizedPost(post);
-                    }}
                 />
             ))}
 
             {maximizedPost && <MaximizedPost />}
-        </>
+        </div>
     );
 }
 export default Feed;

@@ -1,26 +1,26 @@
 import PostIcons from "@components/post/PostIcons";
+import { useGlobalState } from "@contexts/GlobalStateProvider";
 import Image from "next/image";
 import * as React from "react";
 import CommentSection from "../CommentSection";
+import CommentingField from "./CommentingField";
 
 function Post(props: PostData) {
-    const {
-        postId,
-        imageUrl,
-        imageWidth,
-        imageHeight,
-        imageTitle,
-        onClick,
-        comments
-    } = props;
+    const { postId, imageUrl, imageWidth, imageHeight, imageTitle, comments } =
+        props;
+
+    const { setMaximizedPost } = useGlobalState();
+
+    const [userCommenting, setUserCommenting] = React.useState(false);
 
     return (
-        <div
-            className="color-secondary m-2 px-4 pt-3 rounded"
-            onClick={onClick}
-        >
+        <div className="color-secondary m-2 my-5 px-4 pt-3 rounded border-4 border-red-900 shadow-lg">
             <div className="relative w-full">
                 <Image
+                    onClick={() => {
+                        setMaximizedPost(this);
+                    }}
+                    layout="responsive"
                     objectFit="contain"
                     width={imageWidth}
                     height={imageHeight}
@@ -28,9 +28,24 @@ function Post(props: PostData) {
                     alt="post"
                 />
             </div>
-            <h3 className="text-xl font-bold color-secondary">{imageTitle}</h3>
-            <PostIcons className="" postId={postId} />
-            {comments && <hr />}
+            <h3 className="text-3xl py-3 font-bold color-secondary">
+                {imageTitle}
+            </h3>
+            <PostIcons
+                className=""
+                postId={postId}
+                onComment={() => setUserCommenting(true)}
+                onLike={() => {}}
+                onShare={() => {}}
+            />
+            {comments && <hr className="p-2" />}
+
+            {userCommenting && (
+                <CommentingField
+                    closeCommenting={() => setUserCommenting(false)}
+                />
+            )}
+
             <CommentSection className="pb-4" comments={comments} />
         </div>
     );

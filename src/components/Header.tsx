@@ -29,7 +29,7 @@ function Header(props) {
                 Yuzo
             </div>
 
-            <div className="self-center flex absolute right-10 hover:scale-125 transition">
+            <div className="self-center flex absolute right-10 hover:scale-110 transition">
                 <SettingsLoginButton />
             </div>
         </header>
@@ -38,9 +38,18 @@ function Header(props) {
 
 function SettingsLoginButton(props) {
     const { setSettingsOpen, settingsOpen } = useGlobalState();
-    const value = useAuth();
+    const auth = useAuth();
 
-    if (!value.user) return <LoginButton />;
+    if (!auth.user)
+        return (
+            <Button
+                secondary
+                onClick={() => auth.signIn()}
+                className="text-3xl font-bold"
+            >
+                Login
+            </Button>
+        );
 
     return (
         <>
@@ -54,15 +63,6 @@ function SettingsLoginButton(props) {
                 />
             }
         </>
-    );
-}
-
-function LoginButton() {
-    const auth = useAuth();
-    return (
-        <Button onClick={() => auth.signIn()} className="text-3xl font-bold">
-            Login
-        </Button>
     );
 }
 

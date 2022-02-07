@@ -4,7 +4,7 @@ import * as React from "react";
 function CommentSection({ className, comments }) {
     if (!comments) return <></>;
     return (
-        <div className={`text-sm pt-4 px-2 ${className}`}>
+        <div className={`text-lg px-2 ${className}`}>
             {comments?.map((comment) => (
                 <Comment
                     key={(comment.username, comment.timestamp)}
