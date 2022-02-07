@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { auth, provider } from "@services/firebase";
-import { signInWithPopup } from "firebase/auth";
+import { signInWithPopup, UserCredential } from "firebase/auth";
 
 const AuthContext = React.createContext(null);
 
@@ -43,6 +43,10 @@ function AuthProvider(props) {
 
 export default AuthProvider;
 
-export function useAuth() {
+export function useAuth(): {
+    signIn: Function;
+    logout: Function;
+    user: UserCredential;
+} {
     return useContext(AuthContext);
 }

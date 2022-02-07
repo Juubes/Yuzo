@@ -1,4 +1,5 @@
 import PostIcons from "@components/post/PostIcons";
+import { useAuth } from "@contexts/AuthProvider";
 import { useGlobalState } from "@contexts/GlobalStateProvider";
 import Image from "next/image";
 import * as React from "react";
@@ -12,6 +13,7 @@ function Post(props: PostData) {
     const { setMaximizedPost } = useGlobalState();
 
     const [userCommenting, setUserCommenting] = React.useState(false);
+    const auth = useAuth();
 
     return (
         <div className="color-secondary m-2 my-5 px-4 pt-3 rounded border-4 border-red-900 shadow-lg">
@@ -34,7 +36,12 @@ function Post(props: PostData) {
             <PostIcons
                 className=""
                 postId={postId}
-                onComment={() => setUserCommenting(true)}
+                onComment={() => {
+                    if (auth.user) setUserCommenting(true);
+                    else {
+                        // TODO: tell user to login
+                    }
+                }}
                 onLike={() => {}}
                 onShare={() => {}}
             />
