@@ -15,7 +15,7 @@ function AuthProvider(props) {
             })
             .catch((err) => console.log(err));
     }
-
+    
     function logout() {
         auth.signOut();
     }

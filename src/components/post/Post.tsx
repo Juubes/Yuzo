@@ -13,7 +13,13 @@ function Post(props: PostData) {
     const { setMaximizedPost } = useGlobalState();
 
     const [userCommenting, setUserCommenting] = React.useState(false);
+    const [liked, setLiked] = React.useState(false);
+
     const auth = useAuth();
+
+    const likePost = () => {
+        
+    };
 
     return (
         <div className="color-secondary m-2 my-5 px-4 pt-3 rounded border-4 border-red-900 shadow-lg">
@@ -42,8 +48,12 @@ function Post(props: PostData) {
                         // TODO: tell user to login
                     }
                 }}
-                onLike={() => {}}
+                onLike={() => {
+                    likePost();
+                    setLiked(true);
+                }}
                 onShare={() => {}}
+                liked={liked}
             />
             {comments && <hr className="p-2" />}
 
