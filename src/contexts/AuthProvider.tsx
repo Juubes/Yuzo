@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import { auth, provider } from "@services/firebase";
 import { signInWithPopup, UserCredential } from "firebase/auth";
 
-const AuthContext = React.createContext(null);
+const AuthContext = createContext(null);
 
 function AuthProvider(props) {
     const [user, setUser] = useState(null);
@@ -15,7 +15,7 @@ function AuthProvider(props) {
             })
             .catch((err) => console.log(err));
     }
-    
+
     function logout() {
         auth.signOut();
     }

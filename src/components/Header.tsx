@@ -6,7 +6,7 @@ import { useAuth } from "src/contexts/AuthProvider";
 import { useGlobalState } from "src/contexts/GlobalStateProvider";
 import Button from "./Button";
 
-function Header(props) {
+function Header() {
     const [showBackButton] = useState(false);
 
     return (
@@ -36,7 +36,7 @@ function Header(props) {
     );
 }
 
-function SettingsLoginButton(props) {
+function SettingsLoginButton() {
     const { setSettingsOpen, settingsOpen } = useGlobalState();
     const auth = useAuth();
 

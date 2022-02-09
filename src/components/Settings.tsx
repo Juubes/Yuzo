@@ -8,7 +8,7 @@ function SettingsArea() {
     return (
         <>
             <h1>
-                Logged in as <em>{auth.user.email}</em>
+                Logged in as <em>{auth.user.user.email}</em>
             </h1>
             <button
                 className="font-bold text-blue-500"
